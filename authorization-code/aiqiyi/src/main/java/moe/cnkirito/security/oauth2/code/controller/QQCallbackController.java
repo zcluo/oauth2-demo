@@ -39,6 +39,7 @@ public class QQCallbackController {
 
     @RequestMapping("/aiqiyi/qq/redirect")
     public String getToken(@RequestParam String code){
+        //首先向8080授权服务器申请code，重定向到http://localhost:8081/aiqiyi/qq/redirect?code=xxxx，该回调用于处理重定向后的利用返回的code向授权服务器8080申请token
         log.info("receive code {}",code);
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
